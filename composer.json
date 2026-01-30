@@ -1,0 +1,16 @@
+{
+    "name": "evento",
+    "description": "Student Event Management System",
+    "keywords": ["php", "mysql", "event-management"],
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {
+    },
+    "extra": {
+        "heroku": {
+            "document-root": "public",
+            "index-document": "index.php"
+        }
+    }
+}

@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Coding - Interactive Examples</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        
+        h2 {
+            color: #764ba2;
+            margin-bottom: 15px;
+        }
+        
+        h3 {
+            color: #667eea;
+            margin: 20px 0 10px 0;
+        }
+        
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .keyword { color: #ff79c6; }
+        .string { color: #50fa7b; }
+        .function { color: #8be9fd; }
+        .comment { color: #6272a4; }
+        .number { color: #bd93f9; }
+        
+        .interactive-demo {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px solid #667eea;
+        }
+        
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        input, textarea {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            margin: 5px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .output {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            min-height: 50px;
+            border: 2px dashed #667eea;
+        }
+        
+        .concept {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            background: #e9ecef;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .tab.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Learn Coding Interactively</h1>
+        <p class="subtitle">Hands-on examples to master programming fundamentals</p>
+        
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="tab active" onclick="showTab('basics')">Basics</button>
+            <button class="tab" onclick="showTab('variables')">Variables</button>
+            <button class="tab" onclick="showTab('functions')">Functions</button>
+            <button class="tab" onclick="showTab('loops')">Loops</button>
+            <button class="tab" onclick="showTab('arrays')">Arrays</button>
+            <button class="tab" onclick="showTab('objects')">Objects</button>
+            <button class="tab" onclick="showTab('dom')">DOM Manipulation</button>
+            <button class="tab" onclick="showTab('projects')">Mini Projects</button>
+        </div>
+
+        <!-- BASICS TAB -->
+        <div id="basics" class="tab-content active">
+            <div class="section">
+                <h2>📚 Programming Basics</h2>
+                
+                <div class="concept">
+                    <strong>What is Programming?</strong>
+                    <p>Programming is giving instructions to a computer to perform tasks. Think of it like writing a recipe!</p>
+                </div>
+
+                <h3>Your First Program - Hello World</h3>
+                <div class="code-block">
+<span class="comment">// JavaScript</span>
+<span class="function">console.log</span>(<span class="string">"Hello, World!"</span>);
+
+<span class="comment">// This prints text to the console</span>
+<span class="function">alert</span>(<span class="string">"Hello, World!"</span>);
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>Try it yourself!</h3>
+                    <button onclick="runHelloWorld()">Run Hello World</button>
+                    <div id="hello-output" class="output"></div>
+                </div>
+
+                <h3>Comments - Notes for humans</h3>
+                <div class="code-block">
+<span class="comment">// This is a single-line comment</span>
+
+<span class="comment">/* This is a 
+   multi-line comment */</span>
+
+<span class="comment">// Comments are ignored by the computer</span>
+<span class="comment">// They help explain your code to others (and yourself!)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- VARIABLES TAB -->
+        <div id="variables" class="tab-content">
+            <div class="section">
+                <h2>📦 Variables - Storing Information</h2>
+                
+                <div class="concept">
+                    <strong>What are Variables?</strong>
+                    <p>Variables are containers that store data. Like labeled boxes that hold different things!</p>
+                </div>
+
+                <h3>Declaring Variables</h3>
+                <div class="code-block">
+<span class="comment">// let - for values that can change</span>
+<span class="keyword">let</span> age = <span class="number">25</span>;
+<span class="keyword">let</span> name = <span class="string">"Alice"</span>;
+<span class="keyword">let</span> isStudent = <span class="keyword">true</span>;
+
+<span class="comment">// const - for values that stay the same</span>
+<span class="keyword">const</span> PI = <span class="number">3.14159</span>;
+<span class="keyword">const</span> BIRTH_YEAR = <span class="number">2000</span>;
+
+<span class="comment">// Data Types:</span>
+<span class="comment">// String: "text"</span>
+<span class="comment">// Number: 42, 3.14</span>
+<span class="comment">// Boolean: true, false</span>
+<span class="comment">// null, undefined</span>
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>Variable Calculator</h3>
+                    <input type="text" id="var-name" placeholder="Variable name">
+                    <input type="text" id="var-value" placeholder="Value">
+                    <button onclick="createVariable()">Create Variable</button>
+                    <button onclick="showAllVariables()">Show All Variables</button>
+                    <div id="var-output" class="output"></div>
+                </div>
+
+                <h3>String Operations</h3>
+                <div class="code-block">
+<span class="keyword">let</span> firstName = <span class="string">"John"</span>;
+<span class="keyword">let</span> lastName = <span class="string">"Doe"</span>;
+
+<span class="comment">// Concatenation (joining strings)</span>
+<span class="keyword">let</span> fullName = firstName + <span class="string">" "</span> + lastName;
+<span class="comment">// Result: "John Doe"</span>
+
+<span class="comment">// Template literals (modern way)</span>
+<span class="keyword">let</span> greeting = <span class="string">`Hello, ${firstName}!`</span>;
+<span class="comment">// Result: "Hello, John!"</span>
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>String Combiner</h3>
+                    <input type="text" id="first-name" placeholder="First name">
+                    <input type="text" id="last-name" placeholder="Last name">
+                    <button onclick="combineNames()">Combine Names</button>
+                    <div id="name-output" class="output"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FUNCTIONS TAB -->
+        <div id="functions" class="tab-content">
+            <div class="section">
+                <h2>⚙️ Functions - Reusable Code Blocks</h2>
+                
+                <div class="concept">
+                    <strong>What are Functions?</strong>
+                    <p>Functions are reusable blocks of code that perform specific tasks. Like recipes you can use again and again!</p>
+                </div>
+
+                <h3>Creating Functions</h3>
+                <div class="code-block">
+<span class="comment">// Basic function</span>
+<span class="keyword">function</span> <span class="function">greet</span>() {
+    <span class="function">console.log</span>(<span class="string">"Hello!"</span>);
+}
+
+<span class="comment">// Function with parameters</span>
+<span class="keyword">function</span> <span class="function">greetPerson</span>(name) {
+    <span class="keyword">return</span> <span class="string">`Hello, ${name}!`</span>;
+}
+
+<span class="comment">// Function with multiple parameters</span>
+<span class="keyword">function</span> <span class="function">add</span>(a, b) {
+    <span class="keyword">return</span> a + b;
+}
+
+<span class="comment">// Calling functions</span>
+<span class="function">greet</span>();                    <span class="comment">// "Hello!"</span>
+<span class="keyword">let</span> message = <span class="function">greetPerson</span>(<span class="string">"Alice"</span>);  <span class="comment">// "Hello, Alice!"</span>
+<span class="keyword">let</span> sum = <span class="function">add</span>(<span class="number">5</span>, <span class="number">3</span>);                <span class="comment">// 8</span>
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>Calculator Function</h3>
+                    <input type="number" id="num1" placeholder="Number 1">
+                    <select id="operation">
+                        <option value="add">+</option>
+                        <option value="subtract">-</option>
+                        <option value="multiply">×</option>
+                        <option value="divide">÷</option>
+                    </select>
+                    <input type="number" id="num2" placeholder="Number 2">
+                    <button onclick="calculate()">Calculate</button>
+                    <div id="calc-output" class="output"></div>
+                </div>
+
+                <h3>Arrow Functions (Modern Syntax)</h3>
+                <div class="code-block">
+<span class="comment">// Arrow function (short syntax)</span>
+<span class="keyword">const</span> <span class="function">square</span> = (x) => x * x;
+
+<span class="keyword">const</span> <span class="function">multiply</span> = (a, b) => {
+    <span class="keyword">return</span> a * b;
+};
+
+<span class="function">console.log</span>(<span class="function">square</span>(<span class="number">5</span>));      <span class="comment">// 25</span>
+<span class="function">console.log</span>(<span class="function">multiply</span>(<span class="number">4</span>, <span class="number">3</span>));  <span class="comment">// 12</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOOPS TAB -->
+        <div id="loops" class="tab-content">
+            <div class="section">
+                <h2>🔄 Loops - Repeating Actions</h2>
+                
+                <div class="concept">
+                    <strong>What are Loops?</strong>
+                    <p>Loops repeat code multiple times. Perfect for repetitive tasks!</p>
+                </div>
+
+                <h3>For Loop</h3>
+                <div class="code-block">
+<span class="comment">// Basic for loop</span>
+<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i < <span class="number">5</span>; i++) {
+    <span class="function">console.log</span>(<span class="string">"Count: "</span> + i);
+}
+<span class="comment">// Prints: 0, 1, 2, 3, 4</span>
+
+<span class="comment">// Loop through a range</span>
+<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i <= <span class="number">10</span>; i++) {
+    <span class="function">console.log</span>(i);
+}
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>Multiplication Table Generator</h3>
+                    <input type="number" id="table-num" placeholder="Enter number" value="5">
+                    <button onclick="generateTable()">Generate Table</button>
+                    <div id="table-output" class="output"></div>
+                </div>
+
+                <h3>While Loop</h3>
+                <div class="code-block">
+<span class="comment">// While loop</span>
+<span class="keyword">let</span> count = <span class="number">0</span>;
+<span class="keyword">while</span> (count < <span class="number">5</span>) {
+    <span class="function">console.log</span>(count);
+    count++;
+}
+
+<span class="comment">// Do-while loop (runs at least once)</span>
+<span class="keyword">let</span> x = <span class="number">0</span>;
+<span class="keyword">do</span> {
+    <span class="function">console.log</span>(x);
+    x++;
+} <span class="keyword">while</span> (x < <span class="number">5</span>);
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>Pattern Printer</h3>
+                    <input type="number" id="pattern-rows" placeholder="Number of rows" value="5">
+                    <button onclick="printPattern()">Print Pattern</button>
+                    <div id="pattern-output" class="output" style="font-family: monospace;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ARRAYS TAB -->
+        <div id="arrays" class="tab-content">
+            <div class="section">
+                <h2>📋 Arrays - Lists of Data</h2>
+                
+                <div class="concept">
+                    <strong>What are Arrays?</strong>
+                    <p>Arrays store multiple values in a single variable. Like a shopping list!</p>
+                </div>
+
+                <h3>Creating and Using Arrays</h3>
+                <div class="code-block">
+<span class="comment">// Creating an array</span>
+<span class="keyword">let</span> fruits = [<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"orange"</span>];
+<span class="keyword">let</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];
+
+<span class="comment">// Accessing elements (0-indexed)</span>
+<span class="function">console.log</span>(fruits[<span class="number">0</span>]);  <span class="comment">// "apple"</span>
+<span class="function">console.log</span>(fruits[<span class="number">1</span>]);  <span class="comment">// "banana"</span>
+
+<span class="comment">// Array properties and methods</span>
+<span class="function">console.log</span>(fruits.length);     <span class="comment">// 3</span>
+fruits.<span class="function">push</span>(<span class="string">"grape"</span>);          <span class="comment">// Add to end</span>
+fruits.<span class="function">pop</span>();                   <span class="comment">// Remove from end</span>
+fruits.<span class="function">unshift</span>(<span class="string">"mango"</span>);       <span class="comment">// Add to start</span>
+fruits.<span class="function">shift</span>();                 <span class="comment">// Remove from start</span>
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>Todo List</h3>
+                    <input type="text" id="todo-item" placeholder="Add a task">
+                    <button onclick="addTodo()">Add</button>
+                    <button onclick="removeTodo()">Remove Last</button>
+                    <button onclick="showTodos()">Show All</button>
+                    <div id="todo-output" class="output"></div>
+                </div>
+
+                <h3>Array Methods</h3>
+                <div class="code-block">
+<span class="keyword">let</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];
+
+<span class="comment">// forEach - loop through array</span>
+numbers.<span class="function">forEach</span>((num) => {
+    <span class="function">console.log</span>(num * <span class="number">2</span>);
+});
+
+<span class="comment">// map - transform each element</span>
+<span class="keyword">let</span> doubled = numbers.<span class="function">map</span>(num => num * <span class="number">2</span>);
+<span class="comment">// [2, 4, 6, 8, 10]</span>
+
+<span class="comment">// filter - keep elements that pass test</span>
+<span class="keyword">let</span> evenNumbers = numbers.<span class="function">filter</span>(num => num % <span class="number">2</span> === <span class="number">0</span>);
+<span class="comment">// [2, 4]</span>
+
+<span class="comment">// reduce - combine to single value</span>
+<span class="keyword">let</span> sum = numbers.<span class="function">reduce</span>((total, num) => total + num, <span class="number">0</span>);
+<span class="comment">// 15</span>
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>Array Filter</h3>
+                    <p>Numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</p>
+                    <button onclick="filterEven()">Show Even Numbers</button>
+                    <button onclick="filterOdd()">Show Odd Numbers</button>
+                    <button onclick="filterGreaterThan5()">Show > 5</button>
+                    <div id="filter-output" class="output"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OBJECTS TAB -->
+        <div id="objects" class="tab-content">
+            <div class="section">
+                <h2>🎯 Objects - Structured Data</h2>
+                
+                <div class="concept">
+                    <strong>What are Objects?</strong>
+                    <p>Objects store related data together using key-value pairs. Like a profile card!</p>
+                </div>
+
+                <h3>Creating Objects</h3>
+                <div class="code-block">
+<span class="comment">// Creating an object</span>
+<span class="keyword">let</span> person = {
+    name: <span class="string">"Alice"</span>,
+    age: <span class="number">25</span>,
+    city: <span class="string">"New York"</span>,
+    isStudent: <span class="keyword">true</span>
+};
+
+<span class="comment">// Accessing properties</span>
+<span class="function">console.log</span>(person.name);      <span class="comment">// "Alice"</span>
+<span class="function">console.log</span>(person[<span class="string">"age"</span>]);   <span class="comment">// 25</span>
+
+<span class="comment">// Adding/modifying properties</span>
+person.email = <span class="string">"alice@email.com"</span>;
+person.age = <span class="number">26</span>;
+
+<span class="comment">// Object with methods</span>
+<span class="keyword">let</span> calculator = {
+    add: <span class="keyword">function</span>(a, b) {
+        <span class="keyword">return</span> a + b;
+    },
+    multiply: (a, b) => a * b
+};
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>Person Profile Creator</h3>
+                    <input type="text" id="person-name" placeholder="Name">
+                    <input type="number" id="person-age" placeholder="Age">
+                    <input type="text" id="person-city" placeholder="City">
+                    <button onclick="createPerson()">Create Profile</button>
+                    <div id="person-output" class="output"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DOM MANIPULATION TAB -->
+        <div id="dom" class="tab-content">
+            <div class="section">
+                <h2>🌐 DOM Manipulation - Interactive Websites</h2>
+                
+                <div class="concept">
+                    <strong>What is the DOM?</strong>
+                    <p>DOM (Document Object Model) lets you change website content dynamically with JavaScript!</p>
+                </div>
+
+                <h3>Selecting Elements</h3>
+                <div class="code-block">
+<span class="comment">// Select by ID</span>
+<span class="keyword">let</span> element = document.<span class="function">getElementById</span>(<span class="string">"myId"</span>);
+
+<span class="comment">// Select by class</span>
+<span class="keyword">let</span> elements = document.<span class="function">getElementsByClassName</span>(<span class="string">"myClass"</span>);
+
+<span class="comment">// Select by CSS selector (modern way)</span>
+<span class="keyword">let</span> element = document.<span class="function">querySelector</span>(<span class="string">".myClass"</span>);
+<span class="keyword">let</span> allElements = document.<span class="function">querySelectorAll</span>(<span class="string">".myClass"</span>);
+                </div>
+
+                <h3>Changing Content and Style</h3>
+                <div class="code-block">
+<span class="comment">// Change text content</span>
+element.textContent = <span class="string">"New text"</span>;
+element.innerHTML = <span class="string">"&lt;strong&gt;Bold text&lt;/strong&gt;"</span>;
+
+<span class="comment">// Change styles</span>
+element.style.color = <span class="string">"red"</span>;
+element.style.backgroundColor = <span class="string">"yellow"</span>;
+element.style.fontSize = <span class="string">"20px"</span>;
+
+<span class="comment">// Add/remove classes</span>
+element.classList.<span class="function">add</span>(<span class="string">"active"</span>);
+element.classList.<span class="function">remove</span>(<span class="string">"hidden"</span>);
+element.classList.<span class="function">toggle</span>(<span class="string">"visible"</span>);
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>Style Changer</h3>
+                    <div id="demo-box" style="padding: 20px; background: #f0f0f0; border-radius: 5px; text-align: center;">
+                        <p id="demo-text">Change my style!</p>
+                    </div>
+                    <button onclick="changeColor()">Change Color</button>
+                    <button onclick="changeFontSize()">Change Size</button>
+                    <button onclick="changeText()">Change Text</button>
+                    <button onclick="resetStyles()">Reset</button>
+                </div>
+
+                <h3>Event Listeners</h3>
+                <div class="code-block">
+<span class="comment">// Click event</span>
+button.<span class="function">addEventListener</span>(<span class="string">"click"</span>, <span class="keyword">function</span>() {
+    <span class="function">alert</span>(<span class="string">"Button clicked!"</span>);
+});
+
+<span class="comment">// Input event</span>
+input.<span class="function">addEventListener</span>(<span class="string">"input"</span>, (e) => {
+    <span class="function">console.log</span>(e.target.value);
+});
+
+<span class="comment">// Mouse events</span>
+element.<span class="function">addEventListener</span>(<span class="string">"mouseover"</span>, () => {
+    element.style.backgroundColor = <span class="string">"lightblue"</span>;
+});
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECTS TAB -->
+        <div id="projects" class="tab-content">
+            <div class="section">
+                <h2>🎨 Mini Projects</h2>
+
+                <h3>1. Counter App</h3>
+                <div class="interactive-demo">
+                    <div style="text-align: center;">
+                        <h2 id="counter-display" style="font-size: 3em; color: #667eea;">0</h2>
+                        <button onclick="incrementCounter()">+ Increment</button>
+                        <button onclick="decrementCounter()">- Decrement</button>
+                        <button onclick="resetCounter()">↺ Reset</button>
+                    </div>
+                </div>
+
+                <h3>2. Background Color Changer</h3>
+                <div class="interactive-demo" id="bg-changer" style="padding: 40px; text-align: center; transition: all 0.3s;">
+                    <p id="color-display" style="font-size: 1.5em; font-weight: bold;">#ffffff</p>
+                    <button onclick="randomBackground()">🎨 Random Color</button>
+                </div>
+
+                <h3>3. Simple Password Generator</h3>
+                <div class="interactive-demo">
+                    <input type="number" id="password-length" placeholder="Length" value="12" min="4" max="50">
+                    <button onclick="generatePassword()">Generate Password</button>
+                    <div id="password-output" class="output" style="font-family: monospace; font-size: 1.2em;"></div>
+                </div>
+
+                <h3>4. Temperature Converter</h3>
+                <div class="interactive-demo">
+                    <input type="number" id="temp-input" placeholder="Enter temperature">
+                    <button onclick="convertTemp('CtoF')">Celsius → Fahrenheit</button>
+                    <button onclick="convertTemp('FtoC')">Fahrenheit → Celsius</button>
+                    <div id="temp-output" class="output"></div>
+                </div>
+
+                <h3>5. Palindrome Checker</h3>
+                <div class="interactive-demo">
+                    <input type="text" id="palindrome-input" placeholder="Enter a word" style="width: 300px;">
+                    <button onclick="checkPalindrome()">Check Palindrome</button>
+                    <div id="palindrome-output" class="output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables for projects
+        let myVariables = {};
+        let todoList = [];
+        let counterValue = 0;
+
+        // Tab switching
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Basics Tab Functions
+        function runHelloWorld() {
+            document.getElementById('hello-output').innerHTML = 
+                '<strong>Console Output:</strong> Hello, World!<br>' +
+                '<em>Check your browser console (F12) to see console.log output!</em>';
+            console.log("Hello, World!");
+        }
+
+        // Variables Tab Functions
+        function createVariable() {
+            const name = document.getElementById('var-name').value;
+            const value = document.getElementById('var-value').value;
+            
+            if (name && value) {
+                myVariables[name] = value;
+                document.getElementById('var-output').innerHTML = 
+                    `<strong>Created:</strong> ${name} = "${value}"`;
+            } else {
+                document.getElementById('var-output').innerHTML = 
+                    '<span style="color: red;">Please enter both name and value!</span>';
+            }
+        }
+
+        function showAllVariables() {
+            if (Object.keys(myVariables).length === 0) {
+                document.getElementById('var-output').innerHTML = 
+                    '<em>No variables created yet!</em>';
+                return;
+            }
+            
+            let output = '<strong>All Variables:</strong><br>';
+            for (let key in myVariables) {
+                output += `${key} = "${myVariables[key]}"<br>`;
+            }
+            document.getElementById('var-output').innerHTML = output;
+        }
+
+        function combineNames() {
+            const first = document.getElementById('first-name').value;
+            const last = document.getElementById('last-name').value;
+            
+            if (first && last) {
+                const fullName = first + " " + last;
+                const greeting = `Hello, ${first}!`;
+                document.getElementById('name-output').innerHTML = 
+                    `<strong>Full Name:</strong> ${fullName}<br>` +
+                    `<strong>Greeting:</strong> ${greeting}`;
+            } else {
+                document.getElementById('name-output').innerHTML = 
+                    '<span style="color: red;">Please enter both names!</span>';
+            }
+        }
+
+        // Functions Tab
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const operation = document.getElementById('operation').value;
+            
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById('calc-output').innerHTML = 
+                    '<span style="color: red;">Please enter valid numbers!</span>';
+                return;
+            }
+            
+            let result;
+            switch(operation) {
+                case 'add': result = num1 + num2; break;
+                case 'subtract': result = num1 - num2; break;
+                case 'multiply': result = num1 * num2; break;
+                case 'divide': 
+                    result = num2 !== 0 ? num1 / num2 : 'Cannot divide by zero!';
+                    break;
+            }
+            
+            document.getElementById('calc-output').innerHTML = 
+                `<strong>Result:</strong> ${num1} ${document.getElementById('operation').selectedOptions[0].text} ${num2} = <strong>${result}</strong>`;
+        }
+
+        // Loops Tab
+        function generateTable() {
+            const num = parseInt(document.getElementById('table-num').value);
+            
+            if (isNaN(num)) {
+                document.getElementById('table-output').innerHTML = 
+                    '<span style="color: red;">Please enter a valid number!</span>';
+                return;
+            }
+            
+            let output = `<strong>Multiplication Table of ${num}:</strong><br>`;
+            for (let i = 1; i <= 10; i++) {
+                output += `${num} × ${i} = ${num * i}<br>`;
+            }
+            document.getElementById('table-output').innerHTML = output;
+        }
+
+        function printPattern() {
+            const rows = parseInt(document.getElementById('pattern-rows').value);
+            
+            if (isNaN(rows) || rows < 1) {
+                document.getElementById('pattern-output').innerHTML = 
+                    '<span style="color: red;">Please enter a valid number!</span>';
+                return;
+            }
+            
+            let output = '';
+            for (let i = 1; i <= rows; i++) {
+                output += '★ '.repeat(i) + '<br>';
+            }
+            document.getElementById('pattern-output').innerHTML = output;
+        }
+
+        // Arrays Tab
+        function addTodo() {
+            const item = document.getElementById('todo-item').value;
+            
+            if (item) {
+                todoList.push(item);
+                document.getElementById('todo-output').innerHTML = 
+                    `<strong>Added:</strong> "${item}"<br>` +
+                    `<strong>Total tasks:</strong> ${todoList.length}`;
+                document.getElementById('todo-item').value = '';
+            } else {
+                document.getElementById('todo-output').innerHTML = 
+                    '<span style="color: red;">Please enter a task!</span>';
+            }
+        }
+
+        function removeTodo() {
+            if (todoList.length > 0) {
+                const removed = todoList.pop();
+                document.getElementById('todo-output').innerHTML = 
+                    `<strong>Removed:</strong> "${removed}"<br>` +
+                    `<strong>Remaining tasks:</strong> ${todoList.length}`;
+            } else {
+                document.getElementById('todo-output').innerHTML = 
+                    '<span style="color: orange;">No tasks to remove!</span>';
+            }
+        }
+
+        function showTodos() {
+            if (todoList.length === 0) {
+                document.getElementById('todo-output').innerHTML = 
+                    '<em>No tasks in the list!</em>';
+                return;
+            }
+            
+            let output = '<strong>All Tasks:</strong><ol>';
+            todoList.forEach(task => {
+                output += `<li>${task}</li>`;
+            });
+            output += '</ol>';
+            document.getElementById('todo-output').innerHTML = output;
+        }
+
+        function filterEven() {
+            const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            const even = numbers.filter(num => num % 2 === 0);
+            document.getElementById('filter-output').innerHTML = 
+                `<strong>Even Numbers:</strong> ${even.join(', ')}`;
+        }
+
+        function filterOdd() {
+            const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            const odd = numbers.filter(num => num % 2 !== 0);
+            document.getElementById('filter-output').innerHTML = 
+                `<strong>Odd Numbers:</strong> ${odd.join(', ')}`;
+        }
+
+        function filterGreaterThan5() {
+            const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            const greater = numbers.filter(num => num > 5);
+            document.getElementById('filter-output').innerHTML = 
+                `<strong>Numbers > 5:</strong> ${greater.join(', ')}`;
+        }
+
+        // Objects Tab
+        function createPerson() {
+            const name = document.getElementById('person-name').value;
+            const age = document.getElementById('person-age').value;
+            const city = document.getElementById('person-city').value;
+            
+            if (name && age && city) {
+                const person = {
+                    name: name,
+                    age: parseInt(age),
+                    city: city,
+                    greet: function() {
+                        return `Hello, I'm ${this.name} from ${this.city}!`;
+                    }
+                };
+                
+                document.getElementById('person-output').innerHTML = 
+                    `<strong>Person Object Created:</strong><br>` +
+                    `<pre>${JSON.stringify(person, null, 2)}</pre>` +
+                    `<strong>Calling greet():</strong> ${person.greet()}`;
+            } else {
+                document.getElementById('person-output').innerHTML = 
+                    '<span style="color: red;">Please fill all fields!</span>';
+            }
+        }
+
+        // DOM Tab
+        const colors = ['red', 'blue', 'green', 'purple', 'orange'];
+        let colorIndex = 0;
+        let fontSize = 16;
+
+        function changeColor() {
+            document.getElementById('demo-text').style.color = colors[colorIndex];
+            colorIndex = (colorIndex + 1) % colors.length;
+        }
+
+        function changeFontSize() {
+            fontSize += 4;
+            if (fontSize > 32) fontSize = 16;
+            document.getElementById('demo-text').style.fontSize = fontSize + 'px';
+        }
+
+        function changeText() {
+            const texts = ['Hello!', 'Amazing!', 'Awesome!', 'Fantastic!', 'Change my style!'];
+            const randomText = texts[Math.floor(Math.random() * texts.length)];
+            document.getElementById('demo-text').textContent = randomText;
+        }
+
+        function resetStyles() {
+            const text = document.getElementById('demo-text');
+            text.style.color = 'black';
+            text.style.fontSize = '16px';
+            text.textContent = 'Change my style!';
+            fontSize = 16;
+            colorIndex = 0;
+        }
+
+        // Projects Tab
+        function incrementCounter() {
+            counterValue++;
+            document.getElementById('counter-display').textContent = counterValue;
+        }
+
+        function decrementCounter() {
+            counterValue--;
+            document.getElementById('counter-display').textContent = counterValue;
+        }
+
+        function resetCounter() {
+            counterValue = 0;
+            document.getElementById('counter-display').textContent = counterValue;
+        }
+
+        function randomBackground() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            const color = `rgb(${r}, ${g}, ${b})`;
+            const hex = '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
+            
+            document.getElementById('bg-changer').style.backgroundColor = color;
+            document.getElementById('color-display').textContent = hex;
+        }
+
+        function generatePassword() {
+            const length = parseInt(document.getElementById('password-length').value) || 12;
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+            let password = '';
+            
+            for (let i = 0; i < length; i++) {
+                password += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            
+            document.getElementById('password-output').innerHTML = 
+                `<strong>Generated Password:</strong><br>${password}<br>` +
+                `<small>Length: ${length} characters</small>`;
+        }
+
+        function convertTemp(direction) {
+            const input = parseFloat(document.getElementById('temp-input').value);
+            
+            if (isNaN(input)) {
+                document.getElementById('temp-output').innerHTML = 
+                    '<span style="color: red;">Please enter a valid number!</span>';
+                return;
+            }
+            
+            let result;
+            if (direction === 'CtoF') {
+                result = (input * 9/5) + 32;
+                document.getElementById('temp-output').innerHTML = 
+                    `<strong>${input}°C = ${result.toFixed(2)}°F</strong>`;
+            } else {
+                result = (input - 32) * 5/9;
+                document.getElementById('temp-output').innerHTML = 
+                    `<strong>${input}°F = ${result.toFixed(2)}°C</strong>`;
+            }
+        }
+
+        function checkPalindrome() {
+            const input = document.getElementById('palindrome-input').value.toLowerCase().replace(/[^a-z0-9]/g, '');
+            
+            if (!input) {
+                document.getElementById('palindrome-output').innerHTML = 
+                    '<span style="color: red;">Please enter a word!</span>';
+                return;
+            }
+            
+            const reversed = input.split('').reverse().join('');
+            const isPalindrome = input === reversed;
+            
+            document.getElementById('palindrome-output').innerHTML = 
+                `<strong>Word:</strong> ${input}<br>` +
+                `<strong>Reversed:</strong> ${reversed}<br>` +
+                `<strong>Result:</strong> <span style="color: ${isPalindrome ? 'green' : 'red'}; font-weight: bold;">` +
+                `${isPalindrome ? '✓ Yes, it\'s a palindrome!' : '✗ No, it\'s not a palindrome!'}</span>`;
+        }
+
+        // Initialize
+        console.log('%c🚀 Welcome to Interactive Coding Lessons!', 'font-size: 20px; color: #667eea; font-weight: bold;');
+        console.log('%cOpen this console (F12) to see console.log() outputs!', 'font-size: 14px; color: #764ba2;');
+    </script>
+</body>
+</html>
