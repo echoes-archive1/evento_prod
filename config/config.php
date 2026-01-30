@@ -28,7 +28,7 @@ if (session_status() === PHP_SESSION_NONE) {
 // Application Constants
 define('APP_NAME', 'Evento - College Event Management');
 define('APP_VERSION', '1.1.0'); // Updated with public landing page + auto-registration flow
-define('BASE_URL', 'http://localhost/evento'); // Use https:// in production
+define('BASE_URL', $_ENV['BASE_URL'] ?? getenv('BASE_URL') ?: 'http://localhost/evento'); // Use https:// in production
 define('UPLOAD_PATH', __DIR__ . '/../public/uploads/');
 define('MAX_FILE_SIZE', 5242880); // 5MB
 
