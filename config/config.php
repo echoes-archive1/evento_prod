@@ -67,6 +67,12 @@ function generateCSRFToken() {
     return $_SESSION[CSRF_TOKEN_NAME];
 }
 
+// Get asset URL (for CSS/JS files)
+function assetUrl($path) {
+    $base = rtrim(BASE_URL, '/');
+    return $base . '/' . ltrim($path, '/');
+}
+
 // Verify CSRF Token
 function verifyCSRFToken($token) {
     return isset($_SESSION[CSRF_TOKEN_NAME]) && hash_equals($_SESSION[CSRF_TOKEN_NAME], $token);

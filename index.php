@@ -43,8 +43,8 @@ $stats = $stats_stmt->fetch();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo APP_NAME; ?> - Discover College Events</title>
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/dashboard.css">
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/alerts.css">
+    <link rel="stylesheet" href="<?php echo assetUrl('css/dashboard.css'); ?>">
+    <link rel="stylesheet" href="<?php echo assetUrl('css/alerts.css'); ?>">
     <style>
         @keyframes buttonGlow {
             0%, 100% { 
@@ -780,7 +780,7 @@ $stats = $stats_stmt->fetch();
         </div>
     </main>
 
-    <script src="<?php echo BASE_URL; ?>/public/js/toast.js"></script>
+    <script src="<?php echo assetUrl('js/toast.js'); ?>"></script>
     <script>
         function viewEventDetails(eventId) {
             window.location.href = '<?php echo BASE_URL; ?>/event-details-public.php?id=' + eventId;
