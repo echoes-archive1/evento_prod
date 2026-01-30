@@ -4,7 +4,7 @@
 # Enable Rewrite Engine
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /evento/
+    RewriteBase /
     
     # Force HTTPS (uncomment in production)
     # RewriteCond %{HTTPS} off
