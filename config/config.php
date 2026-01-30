@@ -25,6 +25,30 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Start output buffering to rewrite asset paths for Railway
+ob_start();
+
+// Detect if we're in production (Railway or HTTPS) 
+$isProduction = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || 
+                strpos($_SERVER['HTTP_HOST'] ?? '', 'railway.app') !== false ||
+                strpos($_SERVER['HTTP_HOST'] ?? '', '.up.railway.app') !== false;
+
+// Auto-rewrite old asset paths to new ones if in production
+if ($isProduction) {
+    register_shutdown_function(function() {
+        $output = ob_get_clean();
+        // Replace old paths with new ones
+        $output = str_replace(
+            [BASE_URL . '/public/css/', BASE_URL . '/public/js/'],
+            [BASE_URL . '/css/', BASE_URL . '/js/'],
+            $output
+        );
+        echo $output;
+    });
+} else {
+    ob_end_clean();
+}
+
 // Application Constants
 define('APP_NAME', 'Evento - College Event Management');
 define('APP_VERSION', '1.1.0'); // Updated with public landing page + auto-registration flow
